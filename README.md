@@ -33,3 +33,6 @@ Starts the application. Visit localhost:8000 in a browser to load the app.
 
 `pycodestyle` is the included linter, and `pytest` is the included test runner.
 
+If you'd prefer to use docker, `docker-compose build` and `docker-compose up` can launch the application as well.
+
+
