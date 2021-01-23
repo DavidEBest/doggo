@@ -8,6 +8,9 @@ fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 pyyaml = "*"
 jinja2 = "*"
+pycodestyle = "*"
+pytest = "*"
+requests = "*"
 
 [dev-packages]
 

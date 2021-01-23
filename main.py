@@ -14,9 +14,11 @@ except yaml.YAMLError as exc:
 file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
 
+
 @app.get("/", response_class=HTMLResponse)
 def read_path_main():
     return read_path('main')
+
 
 @app.get("/{path}", response_class=HTMLResponse)
 def read_path(path: str):
