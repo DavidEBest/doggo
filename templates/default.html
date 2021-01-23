@@ -2,6 +2,15 @@
 {% block content %}
   <h1>{{name}}</h1>
   <p>{{desc}}</p>
+  {% if inputs %}
+    <h2>Inputs:</h2>
+    <ul>
+      {% for i in inputs %}
+        <li>{{i}}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
   {% if do %}
     <h2>Do:</h2>
     <ul>
@@ -23,6 +32,15 @@
   {% block common %}
     {% if common %}
       <h2>Common</h2>
+
+      {% if common.inputs %}
+        <h3>Inputs:</h3>
+        <ul>
+          {% for i in common.inputs %}
+            <li>{{i}}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
       {% if common.do %}
         <h3>Do:</h3>
         <ul>

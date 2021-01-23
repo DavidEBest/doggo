@@ -1,6 +1,8 @@
 common:
   name: Common features
   desc: Not a page, just a list of common bits.
+  inputs:
+    - search
   do:
     - login
     - logout
