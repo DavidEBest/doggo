@@ -2,16 +2,45 @@
 {% block content %}
   <h1>{{name}}</h1>
   <p>{{desc}}</p>
-  <h2>Do:</h2>
-  <ul>
-    {% for d in do %}
-      <li>{{d}}</li>
-    {% endfor %}
-  </ul>
-  <h2>Go:</h2>
-  <ul>
-    {% for g in go %}
-      <li><a href="{{g}}">{{g}}</a></li>
-    {% endfor %}
-  </ul>
+  {% if do %}
+    <h2>Do:</h2>
+    <ul>
+      {% for d in do %}
+        <li>{{d}}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if go %}
+    <h2>Go:</h2>
+    <ul>
+      {% for g in go %}
+        <li><a href="{{g}}">{{g}}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}  
+
+  {% block common %}
+    {% if common %}
+      <h2>Common</h2>
+      {% if common.do %}
+        <h3>Do:</h3>
+        <ul>
+          {% for d in common.do %}
+            <li>{{d}}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if common.go %}
+        <h3>Go:</h3>
+        <ul>
+          {% for g in common.go %}
+            <li><a href="{{g}}">{{g}}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    
+    {% endif %}
+  {% endblock %}
 {% endblock %}

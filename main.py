@@ -24,9 +24,12 @@ def read_path(path: str):
         template = env.get_template(path + '.html')
     except exceptions.TemplateNotFound as exc:
         template = env.get_template('default.html')
+    common = None
+    if 'common' in _data:
+        common = _data['common']
 
     if path in _data:
-        return template.render(_data[path])
+        return template.render(_data[path], common=common)
 
     template = env.get_template('error.html')
     return template.render()
