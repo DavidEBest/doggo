@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{name}}</h1>
+  <p>{{desc}}</p>
+  <h2>Do:</h2>
+  <ul>
+    {% for d in do %}
+      <li>{{d}}</li>
+    {% endfor %}
+  </ul>
+  <h2>Go:</h2>
+  <ul>
+    {% for g in go %}
+      <li><a href="{{g}}">{{g}}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

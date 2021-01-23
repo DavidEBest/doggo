@@ -1,0 +1,15 @@
+main:
+  name: Main Page
+  desc: The main page of the application. Yay!
+  do:
+    - login
+    - logout
+  go:
+    - list
+list:
+  name: A Listing
+  desc: The listing of things in the application.
+  do:
+    - logout
+  go:
+    - details
