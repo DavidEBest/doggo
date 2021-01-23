@@ -15,23 +15,33 @@ file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
 
 
+def get_template(node_name: str):
+    try:
+        template = env.get_template(node_name + '.html')
+    except exceptions.TemplateNotFound as exc:
+        template = env.get_template('default.html')
+    finally:
+        return template
+
+
 @app.get("/", response_class=HTMLResponse)
 def read_path_main():
     return read_path('main')
 
 
-@app.get("/{path}", response_class=HTMLResponse)
-def read_path(path: str):
-    try:
-        template = env.get_template(path + '.html')
-    except exceptions.TemplateNotFound as exc:
-        template = env.get_template('default.html')
+@app.get("/{node_name}", response_class=HTMLResponse)
+def read_path(node_name: str):
+    data = None
+    if node_name in _data:
+        data = _data[node_name]
+
+    if data is None:
+        template = env.get_template('error.html')
+        return template.render()
+
     common = None
     if 'common' in _data:
         common = _data['common']
 
-    if path in _data:
-        return template.render(_data[path], common=common)
-
-    template = env.get_template('error.html')
-    return template.render()
+    template = get_template(node_name)
+    return template.render(data, common=common)
