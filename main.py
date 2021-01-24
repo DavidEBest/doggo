@@ -11,15 +11,15 @@ try:
 except yaml.YAMLError as exc:
     print(exc)
 
-file_loader = FileSystemLoader('templates/app')
+file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
 
 
 def get_template(node_name: str):
     try:
-        template = env.get_template(node_name + '.html')
+        template = env.get_template('app/' + node_name + '.html')
     except exceptions.TemplateNotFound as exc:
-        template = env.get_template('default.html')
+        template = env.get_template('app/' + 'default.html')
     finally:
         return template
 
@@ -29,6 +29,13 @@ def read_path_main():
     return read_path('main')
 
 
+@app.get("/admin", response_class=HTMLResponse)
+def read_admin():
+    template = env.get_template('admin/' + 'main.html')
+    print(_data)
+    return template.render(data=_data)
+
+
 @app.get("/{node_name}", response_class=HTMLResponse)
 def read_path(node_name: str):
     data = None
@@ -36,7 +43,7 @@ def read_path(node_name: str):
         data = _data[node_name]
 
     if data is None:
-        template = env.get_template('error.html')
+        template = env.get_template('app/' + 'default.html')
         return template.render()
 
     common = None

@@ -1,0 +1,11 @@
+{% extends "admin/base.html" %}
+{% block content %}
+  <h1>Admin</h1>
+  {% if data %}
+    <ul>
+      {% for d in data %}
+        <li><a href="{{d}}">{{d}}: {{data[d].name}} - {{data[d].desc}}</a></li> 
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
