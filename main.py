@@ -11,7 +11,7 @@ try:
 except yaml.YAMLError as exc:
     print(exc)
 
-file_loader = FileSystemLoader('templates')
+file_loader = FileSystemLoader('templates/app')
 env = Environment(loader=file_loader)
 
 

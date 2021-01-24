@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{name}}</h1>
+  <p>{{desc}}</p>
+  {% if data %}
+  <ul>
+    {% for item in data %}
+      <li><a href="details">{{item}}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% if inputs %}
+    <h2>Inputs:</h2>
+    <ul>
+      {% for i in inputs %}
+        <li>{{i}}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if do %}
+    <h2>Do:</h2>
+    <ul>
+      {% for d in do %}
+        <li>{{d}}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if go %}
+    <h2>Go:</h2>
+    <ul>
+      {% for g in go %}
+        <li><a href="{{g}}">{{g}}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}  
+
+  {% block common %}
+    {% if common %}
+      <h2>Common</h2>
+
+      {% if common.inputs %}
+        <h3>Inputs:</h3>
+        <ul>
+          {% for i in common.inputs %}
+            <li>{{i}}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if common.do %}
+        <h3>Do:</h3>
+        <ul>
+          {% for d in common.do %}
+            <li>{{d}}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if common.go %}
+        <h3>Go:</h3>
+        <ul>
+          {% for g in common.go %}
+            <li><a href="{{g}}">{{g}}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    
+    {% endif %}
+  {% endblock %}
+{% endblock %}

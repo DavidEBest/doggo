@@ -18,3 +18,7 @@ list:
   desc: The listing of things in the application.
   go:
     - details
+  data:
+    - Item One
+    - Item Two
+    - Item Three
