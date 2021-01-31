@@ -1,24 +1,33 @@
-common:
-  name: Common features
-  desc: Not a page, just a list of common bits.
-  inputs:
-    - search
-  do:
-    - login
-    - logout
-  go: 
-    - main
-main:
-  name: Main Page
-  desc: The main page of the application. Yay!
-  go:
-    - list
-list:
-  name: A Listing
-  desc: The listing of things in the application.
-  go:
-    - details
-  data:
-    - Item One
-    - Item Two
-    - Item Three
+name: Demo application
+data:
+  books:
+    tiny:
+      name: 'Tiny MBA'
+      author: 'Alex Hillman'
+    rework:
+      name: 'Rework'
+      author: 'Jason Fried'
+    dsrp:
+      name: 'Systems Thinking Made Simple'
+      author: 'Derek Cabrera'
+cards:
+  common:
+    name: Common features
+    desc: Not a page, just a list of common bits.
+    inputs:
+      - search
+    do:
+      - login
+      - logout
+    go: 
+      - main
+  main:
+    name: Main Page
+    desc: The main page of the application.
+    go:
+      - list
+  list:
+    name: A Listing
+    desc: The listing of things in the application.
+    go:
+      - details
