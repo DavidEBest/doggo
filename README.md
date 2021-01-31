@@ -38,8 +38,6 @@ If you'd prefer to use docker, `docker-compose build` and `docker-compose up` ca
 
 ## Roadmap and Vision
 
-I like rapid prototyping, and I think it is extremely valuable to get early feedback from potential users. I've used tools like XD, but I'm not a fan - I want clickable prototypes quickly. I'm more comfortable with code than an GUI, but I don't want to spin up a react app. The purpose of this application is to provide a simple, data driven way to get a prototype up and running quickly. It will never be your production application, but it allows for progressive enhancement. Everything should be overrideable.
-
 I like prototyping in software. Usually I use straight HTML/CSS or Angular, depending on the complexity of the application.
 
 HTML/CSS can be too fiddly and have too much copy and paste. Angular is, well, Angular. Routing and data services are great and it is incredibly powerful but not as quick to refactor as I'd like. Doggo is my attempt to find a middle ground.

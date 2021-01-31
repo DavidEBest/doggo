@@ -11,6 +11,8 @@ jinja2 = "*"
 pycodestyle = "*"
 pytest = "*"
 requests = "*"
+sphinx = "*"
+recommonmark = "*"
 
 [dev-packages]
 
