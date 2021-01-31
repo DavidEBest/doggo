@@ -24,24 +24,32 @@ def get_template(node_name: str):
         return template
 
 
+def get_card_data(node_name: str):
+    data = None
+    if 'cards' in _data:
+        if node_name in _data['cards']:
+            data = _data['cards'][node_name]
+    elif node_name in _data:
+        data = _data[node_name]
+
+    return data
+
+
 @app.get("/", response_class=HTMLResponse)
 def read_path_main():
-    return read_path('main')
+    template = env.get_template('admin/' + 'main.html')
+    return template.render(data=_data)
 
 
 @app.get("/admin", response_class=HTMLResponse)
 def read_admin():
     template = env.get_template('admin/' + 'main.html')
-    print(_data)
     return template.render(data=_data)
 
 
 @app.get("/{node_name}", response_class=HTMLResponse)
 def read_path(node_name: str):
-    data = None
-    if node_name in _data:
-        data = _data[node_name]
-
+    data = get_card_data(node_name)
     if data is None:
         template = env.get_template('app/' + 'default.html')
         return template.render()

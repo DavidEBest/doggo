@@ -2,9 +2,10 @@
 {% block content %}
   <h1>Admin</h1>
   {% if data %}
+    <h2>{{data.name}}</h2>
     <ul>
-      {% for d in data %}
-        <li><a href="{{d}}">{{d}}: {{data[d].name}} - {{data[d].desc}}</a></li> 
+      {% for d in data['cards'] %}
+        <li><a href="{{d}}">{{d}}: {{data['cards'][d].name}} - {{data['cards'][d].desc}}</a></li> 
       {% endfor %}
     </ul>
   {% endif %}
