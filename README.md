@@ -57,14 +57,14 @@ The purpose of this is NOT to create a slick, production framework, but to get d
 ### Roadmap
 
 Q1 2021
-[ ] Write a spec for the doggo yaml file
-[ ] Provide some better looking default and selectable templates
-[ ] Figure out a generic way to handle query strings to allow for data selection
-[ ] Create a web page for the project
+- [ ] Write a spec for the doggo yaml file
+- [ ] Provide some better looking default and selectable templates
+- [ ] Figure out a generic way to handle query strings to allow for data selection
+- [ ] Create a web page for the project
 
 The Future
-[ ] "Interactive Mode" that allows the user to define new cards & data
-[ ] "Doggo as a Service" - a deployed version of the application that allows users to create their own prototypes and share them (codepen-like functionality)
-[ ] "Whiteboard mode" - Miro or Plectica like interface for teams to define cards and data
+- [ ] "Interactive Mode" that allows the user to define new cards & data
+- [ ] "Doggo as a Service" - a deployed version of the application that allows users to create their own prototypes and share them (codepen-like functionality)
+- [ ] "Whiteboard mode" - Miro or Plectica like interface for teams to define cards and data
 
 Contributions welcome!
